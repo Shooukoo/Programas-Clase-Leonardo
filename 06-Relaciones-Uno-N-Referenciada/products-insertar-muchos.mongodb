@@ -1,0 +1,234 @@
+use("northwind-store")
+
+db.products.insertMany(
+    [
+        {
+            "ProductID": 4,
+            "ProductName": "Chef Anton's Cajun Seasoning",
+            "Supplier": {
+                "SupplierId": 2,
+                "CompanyName": "New Orleans Cajun Delights",
+                "ContactName": "Shelley Burke"
+            },
+            "Category": {
+                "CategoryId": 2,
+                "CategoryName": "Condiments"
+            },
+            "QuantityPerUnit": "48 - 6 oz jars",
+            "UnitPrice": 22,
+            "UnitsInStock": 53,
+            "UnitsOnOrder": 0,
+            "ReorderLevel": 0,
+            "Discontinued": false
+        },
+        {
+            "ProductID": 5,
+            "ProductName": "Chef Anton's Gumbo Mix",
+            "Supplier": {
+                "SupplierId": 2,
+                "CompanyName": "New Orleans Cajun Delights",
+                "ContactName": "Shelley Burke"
+            },
+            "Category": {
+                "CategoryId": 2,
+                "CategoryName": "Condiments"
+            },
+            "QuantityPerUnit": "36 boxes",
+            "UnitPrice": 21.35,
+            "UnitsInStock": 0,
+            "UnitsOnOrder": 0,
+            "ReorderLevel": 0,
+            "Discontinued": true
+        },
+        {
+            "ProductID": 65,
+            "ProductName": "Louisiana Fiery Hot Pepper Sauce",
+            "Supplier": {
+                "SupplierId": 2,
+                "CompanyName": "New Orleans Cajun Delights",
+                "ContactName": "Shelley Burke"
+            },
+            "Category": {
+                "CategoryId": 2,
+                "CategoryName": "Condiments"
+            },
+            "QuantityPerUnit": "32 - 8 oz bottles",
+            "UnitPrice": 21.05,
+            "UnitsInStock": 76,
+            "UnitsOnOrder": 0,
+            "ReorderLevel": 0,
+            "Discontinued": false
+        },
+        {
+            "ProductID": 66,
+            "ProductName": "Louisiana Hot Spiced Okra",
+            "Supplier": {
+                "SupplierId": 2,
+                "CompanyName": "New Orleans Cajun Delights",
+                "ContactName": "Shelley Burke"
+            },
+            "Category": {
+                "CategoryId": 2,
+                "CategoryName": "Condiments"
+            },
+            "QuantityPerUnit": "24 - 8 oz jars",
+            "UnitPrice": 17,
+            "UnitsInStock": 4,
+            "UnitsOnOrder": 100,
+            "ReorderLevel": 20,
+            "Discontinued": false
+        },
+        {
+            "ProductID": 6,
+            "ProductName": "Grandma's Boysenberry Spread",
+            "Supplier": {
+                "SupplierId": 3,
+                "CompanyName": "Grandma Kelly's Homestead",
+                "ContactName": "Regina Murphy"
+            },
+            "Category": {
+                "CategoryId": 2,
+                "CategoryName": "Condiments"
+            },
+            "QuantityPerUnit": "12 - 8 oz jars",
+            "UnitPrice": 25,
+            "UnitsInStock": 120,
+            "UnitsOnOrder": 0,
+            "ReorderLevel": 25,
+            "Discontinued": false
+        },
+        {
+            "ProductID": 7,
+            "ProductName": "Uncle Bob's Organic Dried Pears",
+            "Supplier": {
+                "SupplierId": 3,
+                "CompanyName": "Grandma Kelly's Homestead",
+                "ContactName": "Regina Murphy"
+            },
+            "Category": {
+                "CategoryId": 7,
+                "CategoryName": "Produce"
+            },
+            "QuantityPerUnit": "12 - 1 lb pkgs.",
+            "UnitPrice": 30,
+            "UnitsInStock": 15,
+            "UnitsOnOrder": 0,
+            "ReorderLevel": 10,
+            "Discontinued": false
+        },
+        {
+            "ProductID": 8,
+            "ProductName": "Northwoods Cranberry Sauce",
+            "Supplier": {
+                "SupplierId": 3,
+                "CompanyName": "Grandma Kelly's Homestead",
+                "ContactName": "Regina Murphy"
+            },
+            "Category": {
+                "CategoryId": 2,
+                "CategoryName": "Condiments"
+            },
+            "QuantityPerUnit": "12 - 12 oz jars",
+            "UnitPrice": 40,
+            "UnitsInStock": 6,
+            "UnitsOnOrder": 0,
+            "ReorderLevel": 0,
+            "Discontinued": false
+        },
+        {
+            "ProductID": 34,
+            "ProductName": "Sasquatch Ale",
+            "Supplier": {
+                "SupplierId": 16,
+                "CompanyName": "Bigfoot Breweries",
+                "ContactName": "Cheryl Saylor"
+            },
+            "Category": {
+                "CategoryId": 1,
+                "CategoryName": "Beverages"
+            },
+            "QuantityPerUnit": "24 - 12 oz bottles",
+            "UnitPrice": 14,
+            "UnitsInStock": 111,
+            "UnitsOnOrder": 0,
+            "ReorderLevel": 15,
+            "Discontinued": false
+        },
+        {
+            "ProductID": 35,
+            "ProductName": "Steeleye Stout",
+            "Supplier": {
+                "SupplierId": 16,
+                "CompanyName": "Bigfoot Breweries",
+                "ContactName": "Cheryl Saylor"
+            },
+            "Category": {
+                "CategoryId": 1,
+                "CategoryName": "Beverages"
+            },
+            "QuantityPerUnit": "24 - 12 oz bottles",
+            "UnitPrice": 18,
+            "UnitsInStock": 20,
+            "UnitsOnOrder": 0,
+            "ReorderLevel": 15,
+            "Discontinued": false
+        },
+        {
+            "ProductID": 67,
+            "ProductName": "Laughing Lumberjack Lager",
+            "Supplier": {
+                "SupplierId": 16,
+                "CompanyName": "Bigfoot Breweries",
+                "ContactName": "Cheryl Saylor"
+            },
+            "Category": {
+                "CategoryId": 1,
+                "CategoryName": "Beverages"
+            },
+            "QuantityPerUnit": "24 - 12 oz bottles",
+            "UnitPrice": 14,
+            "UnitsInStock": 52,
+            "UnitsOnOrder": 0,
+            "ReorderLevel": 10,
+            "Discontinued": false
+        },
+        {
+            "ProductID": 40,
+            "ProductName": "Boston Crab Meat",
+            "Supplier": {
+                "SupplierId": 19,
+                "CompanyName": "New England Seafood Cannery",
+                "ContactName": "Robb Merchant"
+            },
+            "Category": {
+                "CategoryId": 8,
+                "CategoryName": "Seafood"
+            },
+            "QuantityPerUnit": "24 - 4 oz tins",
+            "UnitPrice": 18.4,
+            "UnitsInStock": 123,
+            "UnitsOnOrder": 0,
+            "ReorderLevel": 30,
+            "Discontinued": false
+        },
+        {
+            "ProductID": 41,
+            "ProductName": "Jack's New England Clam Chowder",
+            "Supplier": {
+                "SupplierId": 19,
+                "CompanyName": "New England Seafood Cannery",
+                "ContactName": "Robb Merchant"
+            },
+            "Category": {
+                "CategoryId": 8,
+                "CategoryName": "Seafood"
+            },
+            "QuantityPerUnit": "12 - 12 oz cans",
+            "UnitPrice": 9.65,
+            "UnitsInStock": 85,
+            "UnitsOnOrder": 0,
+            "ReorderLevel": 10,
+            "Discontinued": false
+        }
+    ]
+)

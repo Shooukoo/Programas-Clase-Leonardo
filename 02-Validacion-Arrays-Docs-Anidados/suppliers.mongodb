@@ -1,0 +1,38 @@
+// Usar base de datos 
+use("northwind-store")
+
+// Crear el esquema de Suppliers
+db.createCollection('suppliers', {
+    validator: { // Validador
+        $jsonSchema: {
+            bsonType: 'object', // Indicamos que se refiere a un objetos
+            required: ['SupplierId', 'CompanyName'], // Atributos requeridos
+            properties: {
+                SupplierId: { bsonType: 'int'},
+                CompanyName: { bsonType: 'string'},
+                ContactName: { bsonType: 'string'},
+                Address: {
+                    bsonType: 'object', // Indicamos que se refiere a un objeto
+                    required: ['Street', 'City', 'PostalCode', 'Country'], // Atributos requeridos
+                    properties: {
+                        Street: {bsonType: 'string'},
+                        City: {bsonType: 'string'},
+                        Region: {bsonType: 'string'},
+                        PostalCode: {bsonType: 'string'},
+                        Country: {bsonType: 'string'},
+                    }
+                },
+                Phone: { // Asi se validan los arreglos
+                    bsonType: 'array',
+                    minItems: 1,
+                    maxItems: 3,
+                    items: { bsonType: 'string' },
+                    uniqueItems: true
+                },
+                Fax: {
+                    bsonType: 'string'
+                }
+            }
+        }
+    }
+})

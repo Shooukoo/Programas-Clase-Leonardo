@@ -1,0 +1,24 @@
+use("northwind-store")
+
+db.categories.find().count
+
+use("northwind-store")
+
+db.categories.findOne(
+    { "CategoryId": 2}, // Filtro Where
+    {} // Proyeccion Select
+)
+
+
+// Muestre los productos del provedor
+use("northwind-store")
+
+db.products.find(
+    { "Supplier.ContactName": "Shelley Burke" }, // Filtro Where
+    {   
+        "ProductName": 1,
+        "Supplier.ContactName": 1,
+        "Category.CategoryName": 1,
+        "_id": 0
+    } // Proyeccion Select
+)

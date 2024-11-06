@@ -1,0 +1,10 @@
+use("northwind-store")
+
+
+// Insertar un documento en la coleccion usuarios
+db.usuarios.insertOne({
+    email: 'sergio.salinas@gmail.com',
+    contrasena: '12345678#.',
+    rol: 'Employee',
+    edad: 60
+})

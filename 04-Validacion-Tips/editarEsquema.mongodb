@@ -1,0 +1,36 @@
+use("northwind-store")
+
+// Informacion de los esquemas 
+db.getCollectionInfos();
+
+// Modificar el esquema
+db.runCommand({
+    collMod: 'usuarios',
+    validator: { // Validador
+        $jsonSchema: {
+            bsonType: 'object', // Indicamos que se refiere a un objetos
+            title: 'Validación del objeto de usuarios',
+            required: ['_id','email', 'contrasena'], // Atributos requeridos
+            // additionalProperties: true,
+            properties: {
+                // _id: { bsonType: 'objectId' }, // Esto debe ir a fuezar como también en requeridos
+                email: { 
+                    bsonType: 'string',
+                    description: 'Correo del usuario',
+                },
+                contrasena: { 
+                    bsonType: 'string',
+                    description: 'Clave del usuario entre 8 y 20 caracteres',
+                },
+                rol:{ enum: ['Admin', 'Guest', 'Users', 'Employee', 'Customer'] },
+                fecha_creacion: { bsonType: 'date' },
+                edad: { 
+                    bsonType: 'int',
+                    minimum: 18,
+                    maximum: 60
+                },
+                estado: { bsonType: 'bool' }
+            }
+        }
+    }
+})

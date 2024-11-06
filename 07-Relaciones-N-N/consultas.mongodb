@@ -1,0 +1,32 @@
+use("northwind-store")
+
+// Mostrar el numero de orden y el total de la orden
+db.orders.find(
+    {"OrderID": 10250}, // FILTRO
+    {_id:0, OrderID: 1, GranTotal: 1} // PROYECCION
+)
+
+use("northwind-store")
+
+db.orders.find().count()
+
+use("northwind-store")
+
+db.orders.find()
+
+// Muestren las ordenes del cliente: "CustomerID": "TOMSP",
+use("northwind-store")
+
+db.orders.find(
+    {"Customer.CustomerID": "TOMSP"} // FILTRO
+    // {_id:0, OrderID: 1, GranTotal: 1} // PROYECCION
+).count()
+
+// AGREGATE
+use("northwind-store")
+
+db.orders.aggregate([
+    {
+        "totalMount": { $sum: "$GranTotal"}
+    }
+])

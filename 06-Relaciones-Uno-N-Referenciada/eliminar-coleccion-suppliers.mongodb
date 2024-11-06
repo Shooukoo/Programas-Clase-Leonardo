@@ -1,0 +1,8 @@
+use("northwind-store")
+db.suppliers.drop()
+
+use("northwind-store")
+db.categories.drop()
+
+use("northwind-store")
+db.products.drop()

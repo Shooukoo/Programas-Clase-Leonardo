@@ -1,0 +1,40 @@
+// Usar base de datos
+use("northwind-store")
+
+// Crear esquema de validación de usuarios
+db.createCollection('usuarios',{
+    validator: { // Validador
+        $jsonSchema: {
+            bsonType: 'object', // Indicamos que se refiere a un objetos
+            title: 'Validación del objeto de usuarios',
+            required: ['_id','email', 'contrasena', 'rol'], // Atributos requeridos
+            // additionalProperties: true,
+            properties: {
+                // _id: { bsonType: 'objectId' }, // Esto debe ir a fuezar como también en requeridos
+                email: { 
+                    bsonType: 'string',
+                    description: 'Correo del usuario',
+                },
+                contrasena: { 
+                    bsonType: 'string',
+                    description: 'Clave del usuario entre 8 y 20 caracteres',
+                },
+                rol:{ enum: ['Admin', 'Guest', 'Users', 'Employee', 'Customer'] },
+                fecha_creacion: { bsonType: 'date' },
+                edad: { 
+                    bsonType: 'int',
+                    minimum: 18,
+                    maximum: 60
+                },
+                estado: { bsonType: 'bool' }
+            }
+        }
+    }
+})
+
+// Crear indice por el campo Email
+// No va a permitir emails duplicados
+db.usuarios.createIndex(
+    {email: 1}, // Será la llave del indice
+    {unique: true} // No acepta valores duplicados 
+)

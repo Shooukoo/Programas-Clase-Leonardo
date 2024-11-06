@@ -1,0 +1,3 @@
+use("northwind-store")
+
+db.suppliers.drop()

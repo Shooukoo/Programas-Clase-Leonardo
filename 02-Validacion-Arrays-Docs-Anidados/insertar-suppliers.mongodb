@@ -1,0 +1,18 @@
+use("northwind-store")
+
+
+// Insertar un documento en la coleccion usuarios
+db.suppliers.insertOne({
+    SupplierId: 1000,
+    CompanyName: 'TNM_ITJ',
+    ContactName: 'Octavio Ramirez Rojas',
+    Address: {
+        Street: 'Carretera nacional S/N Km 202',
+        City: 'Jiquilpan',
+        Region: 'Centro Occidente',
+        PostalCode: '59520',
+        Country: 'Mexico',
+    },
+    Phone: ['353 53 3 11 26'],
+    Fax: '353 53 3 02 37'
+})

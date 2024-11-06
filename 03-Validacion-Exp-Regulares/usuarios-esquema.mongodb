@@ -1,0 +1,33 @@
+// Usar base de datos
+use("northwind-store")
+
+// Crear esquema de validación de usuarios
+db.createCollection('usuarios',{
+    validator: { // Validador
+        $jsonSchema: {
+            bsonType: 'object', // Indicamos que se refiere a un objetos
+            title: 'Validación del objeto de usuarios',
+            required: ['email', 'contrasena', 'rol'], // Atributos requeridos
+            properties: {
+                email: { 
+                    bsonType: 'string',
+                    description: 'Correo del usuario',
+                    pattern: "^[A-Za-z\\d.-]{1,}@[A-Za-z\\d.-]{1,}[.][A-Za-z\\d.-]{1,}$"
+                },
+                contrasena: { 
+                    bsonType: 'string',
+                    description: 'Clave del usuario entre 8 y 20 caracteres',
+                    pattern: "^.{8,10}$" // "^[A-Za-z0-9]{8,20}$" // Validar contraseña con patron
+                }, 
+                rol:{ enum: ['Admin', 'Guest', 'Users', 'Employee', 'Customer'] },
+                fecha_creacion: { bsonType: 'date' },
+                edad: { 
+                    bsonType: 'int',
+                    minimum: 18,
+                    maximum: 60
+                },
+                estado: { bsonType: 'bool' }
+            }
+        }
+    }
+})
