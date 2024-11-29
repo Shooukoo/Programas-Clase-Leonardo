@@ -1,0 +1,54 @@
+// CONSULTA 2
+use("northwind-store")
+
+db.orders.find(
+    { "OrderID": 10260 },
+    { _id: 0, OrderID: 1, "Employee.FirstName": 1, "Employee.LastName": 1, "Customer.ContactName": 1, "GranTotal": 1 } 
+)
+
+// CONSULTA #3
+use("northwind-store")
+
+db.orders.find(
+    {"Customer.ContactName": "Ana Trujillo"}
+).count()
+
+// CONSULTA 4
+use("northwind-store")
+
+db.orders.find(
+    { "Customer.ContactName": "Ana Trujillo" }, 
+    { _id: 0, OrderID: 1, "Employee.FirstName": 1, "Employee.LastName": 1, "GranTotal": 1 }
+)
+
+/* 
+Consulta que genera todas las ordenes
+SELECT 
+    o.OrderID AS OrderNumber,
+    c.ContactName AS CustomerName,
+    e.FirstName + ' ' + e.LastName AS EmployeeName,
+    SUM(od.Quantity * od.UnitPrice) AS OrderTotal,
+    o.OrderDate,
+    o.ShippedDate,
+    o.ShipName,
+    o.ShipAddress,
+    o.ShipCity,
+    o.ShipPostalCode,
+    o.ShipCountry
+FROM Orders o
+JOIN Customers c ON o.CustomerID = c.CustomerID
+JOIN Employees e ON o.EmployeeID = e.EmployeeID
+JOIN [Order Details] od ON o.OrderID = od.OrderID
+GROUP BY 
+    o.OrderID, 
+    c.ContactName, 
+    e.FirstName, 
+    e.LastName, 
+    o.OrderDate,
+    o.ShippedDate,
+    o.ShipName,
+    o.ShipAddress,
+    o.ShipCity,
+    o.ShipPostalCode,
+    o.ShipCountry
+FOR JSON PATH; */
